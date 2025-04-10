@@ -18,10 +18,11 @@ using TMPro;
 public class MainScript : MonoBehaviour{
     private string url = "http://localhost:5000";
     // private string url = "http://192.168.0.107:5000";
+    private int shots=0;
     public Rigidbody sphere;
     private SpherePos spherepos;
     public Animator animator;
-    // bool loadscene = false;
+    private bool loadscene = false;
     // public  Vector3 offset=new Vector3(0,0,0);
     public Transform cameraTransform;
     // private bool cameraArrives = false;
@@ -34,7 +35,7 @@ public class MainScript : MonoBehaviour{
     public Image scoreImage;
     static int score = 0;
     private Vector3 textOriginalPos;
-    public static bool gameStarted = false;
+    public bool gameStarted = false;
     private Vector3 originalCameraPosition = new Vector3(-15.18f, 6.89f, 0.05f);
 
 
@@ -193,6 +194,7 @@ public class MainScript : MonoBehaviour{
     {
         setPs(Xpos);
         sphere.AddForce(Xspeed*35, 0, -Zspeed*5);
+        shots++;
         // print("Zspeed="+Zspeed);
         // print("Xspeed="+Xspeed);
 
@@ -213,8 +215,14 @@ public class MainScript : MonoBehaviour{
     {
         // isDelaying = true;
         yield return new WaitForSeconds(seconds);
+        if(shots >= 2 || FallenPins()==10){
+            SceneManager.LoadScene(0);
+        }
         cameraTransform.position = originalCameraPosition;
         // isDelaying = false;
+        sphere.velocity = Vector3.zero;
+        sphere.angularVelocity = Vector3.zero;
+        sphere.transform.position = new Vector3 (-0.07999943f,2.613499f,-3.125679e-07f);
         StartCoroutine(SendRequestEverySecond()); // Start waiting for the ball to be shot again
     }
     IEnumerator DelayAndCalculateFallenPins(float seconds)

@@ -13096,7 +13096,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071069, y: -0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: -0.08, y: 6.48, z: -0}
-  m_LocalScale: {x: 461.68942, y: 461.68942, z: 461.68942}
+  m_LocalScale: {x: 420, y: 420, z: 420}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -18814,6 +18814,7 @@ MonoBehaviour:
   scoreText: {fileID: 2109121566}
   highscoreText: {fileID: 1849111774}
   scoreImage: {fileID: 133417517}
+  gameStarted: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

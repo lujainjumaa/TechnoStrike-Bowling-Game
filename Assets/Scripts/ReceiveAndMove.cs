@@ -19,8 +19,8 @@ using TMPro;
 
 public class ReceiveAndMove : MonoBehaviour
 {
-    //  private string url = "http://localhost:5000";
-    private string url = "http://192.168.0.107:5000";
+     private string url = "http://localhost:5000";
+    // private string url = "http://192.168.0.107:5000";
 
     public Rigidbody sphere;
     private SpherePos spherepos;
@@ -222,20 +222,20 @@ public class ReceiveAndMove : MonoBehaviour
         // score = FallenPins();
         // print("Score : " + score);
         }
-        if (spherepos != null && spherepos.BShot)
-        {
-            // scoreText.text = FallenPins().ToString() + " POINTS";
-            gameStarted = true;
-            if(loadscene && cameraTransform.position.y >= 17.4)
-            {
-            // print("loadscene");
-            score = FallenPins();
-            // scoreText.text = score.ToString() + " POINTS";
-            // print(score+"\\1");
-            SceneManager.LoadSceneAsync(0);
-            loadscene=false;
-            }
-        }
+        // if (spherepos != null && spherepos.BShot)
+        // {
+        //     // scoreText.text = FallenPins().ToString() + " POINTS";
+        //     gameStarted = true;
+        //     if(loadscene && cameraTransform.position.y >= 17.4)
+        //     {
+        //     // print("loadscene");
+        //     score = FallenPins();
+        //     // scoreText.text = score.ToString() + " POINTS";
+        //     // print(score+"\\1");
+        //     SceneManager.LoadSceneAsync(0);
+        //     loadscene=false;
+        //     }
+        // }
         
        followPS.transform.position = sphere.transform.position - new Vector3(1f, 0.5f, 0);
 
@@ -275,18 +275,18 @@ public class ReceiveAndMove : MonoBehaviour
         scoreText.text = ""; // Clear the score text
     }
 
-    public static float MapRange(float value, float oldMin, float oldMax, float newMin, float newMax)
-    {
-        if (oldMax - oldMin == 0)
-        {
-            print("The input range cannot have zero length");
-        }
+    // public static float MapRange(float value, float oldMin, float oldMax, float newMin, float newMax)
+    // {
+    //     if (oldMax - oldMin == 0)
+    //     {
+    //         print("The input range cannot have zero length");
+    //     }
 
-        value = Math.Max(oldMin, Math.Min(value, oldMax));
+    //     value = Math.Max(oldMin, Math.Min(value, oldMax));
 
-        float newValue = (value - oldMin) / (oldMax - oldMin) * (newMax - newMin) + newMin;
+    //     float newValue = (value - oldMin) / (oldMax - oldMin) * (newMax - newMin) + newMin;
         
-        return newValue;
-    }
+    //     return newValue;
+    // }
 
 }
